@@ -23,15 +23,15 @@ public class DentalRecord {
     private static final char MISSING_TOOTH = 'M';
 
     /**
-     * familyNames array to store names of members.
-     * familyTeeth array to store teeth data: [family member][upper/lower][teeth].
+     * Array to store names of members.
+     * 3D array to store teeth data: [family member][upper/lower][teeth].
      */
     private static String[] familyNames;
     private static char[][][] familyTeeth;
 
     /**
      * Main method.
-     * @param args Passed in from the command line.
+     * @param args Command-line arguments (not used).
      */
 
     public static void main(String[] args) {
@@ -47,7 +47,9 @@ public class DentalRecord {
 
     /**
      * Gather family number, name, and teeth information.
-     * @return familyCount number of family members recorded.
+     * Ensures the number of family members and teeth configurations are within allowed limits.
+     *
+     * @return The number of family members recorded.
      */
 
     private static int initializeFamilyData( ) {
@@ -89,11 +91,12 @@ public class DentalRecord {
 
     /**
      * Prompts the user to input valid teeth row for upper/lower jaw.
+     * Accepts 8 maximum characters ('I', 'B', 'M')
      *
      * @param keyboard The scanner used for input.
      * @param jaw Jaw type (upper or lower).
      * @param name Name of family member.
-     * @return teeth Char array representing the teeth row for the specified jaw
+     * @return Char array representing the teeth row for the specified jaw
      */
     private static char[] getValidTeeth(Scanner keyboard, String jaw, String name) {
 
@@ -137,8 +140,6 @@ public class DentalRecord {
     private static void menu( Scanner keyboard, int familyCount) {
 
         char choice;
-
-
 
         do {
 
@@ -185,7 +186,7 @@ public class DentalRecord {
     } // end of printRecords
 
     /**
-     *Display the teeth in upper or lower jaw for specific member
+     *Display the teeth in upper or lower jaw for specific family member
      *
      * @param jaw An array representing a row of teeth in a jaw.
      */
@@ -271,10 +272,10 @@ public class DentalRecord {
     } // end of extractTooth method
 
     /**
-     * Finds the index of a family member by their name in the familyNames array.
+     * Finds and returns the index of a family member by their name in the familyNames array.
      *
      * @param name Name of family member
-     * @return index The index of family member
+     * @return The index of family member
      */
     private static int getFamilyIndex(String name) {
 
@@ -295,8 +296,8 @@ public class DentalRecord {
     } // end of getFamilyIndex method
 
     /**
-     * Calculates and displays the root canal roots by counting incisors, bicuspids,
-     * and missing teeth, and computing the roots of the equation Ix^2 + Bx - M.
+     * Calculates and displays the root canal roots by counting incisors, bicuspids, and missing teeth.
+     * Computes the roots of the equation Ix^2 + Bx - M.
      */
     private static void reportRootCanalIndex() {
 
