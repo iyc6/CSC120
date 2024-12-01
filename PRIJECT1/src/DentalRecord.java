@@ -173,13 +173,13 @@ public class DentalRecord {
 
         System.out.println();
 
-        for (int i = 0; i < familyCount; i++) {
+        for (int index = 0; index < familyCount; index++) {
 
-            System.out.println(familyNames[i]);
+            System.out.println(familyNames[index]);
             System.out.print("  Uppers: ");
-            printJaw(familyTeeth[i][0]);
+            printJaw(familyTeeth[index][0]);
             System.out.print("  Lowers: ");
-            printJaw(familyTeeth[i][1]);
+            printJaw(familyTeeth[index][1]);
 
         }
 
@@ -192,9 +192,9 @@ public class DentalRecord {
      */
     private static void printJaw(char[] jaw) {
 
-        for (int i = 0; i < jaw.length; i++) {
+        for (int index = 0; index < jaw.length; index++) {
 
-            System.out.print(" " + (i + 1) + ":" + jaw[i]);
+            System.out.print(" " + (index + 1) + ":" + jaw[index]);
 
         }
 
